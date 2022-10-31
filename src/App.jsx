@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
 import theSimpson from "../src/assets/img/theSimpson.png";
 import Frase from "./components/Frase";
+import Spinner from "./components/Spinner";
 
 function App() {
   const [personaje, setPersonaje] = useState({});
@@ -35,9 +36,10 @@ function App() {
         <img src={theSimpson} alt="los simpsons" className="w-100" />
       </div>
       <div className="text-center my-4">
-        <Button>Obtener Frase</Button>
+        <Button type="button" onClick={consultarAPI}>Obtener Frase</Button>
       </div>
       <Frase personaje={personaje}></Frase>
+      <Spinner></Spinner>
     </Container>
   );
 }
