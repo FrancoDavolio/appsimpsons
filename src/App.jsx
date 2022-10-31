@@ -16,6 +16,8 @@ function App() {
 
   const consultarAPI = async () => {
     try {
+      //cambiar el valor del state mostrarSpinner
+      setMostrarSpinner(true);
       //aqui hago la peticion
       const respuesta = await fetch(
         "https://thesimpsonsquoteapi.glitch.me/quotes"
