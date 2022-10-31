@@ -1,16 +1,18 @@
-import "./Spinner.css"
+import "./Spinner.css";
 
 const Spinner = () => {
-    return (
-        <div className="sk-chase">
-  <div className="sk-chase-dot"></div>
-  <div className="sk-chase-dot"></div>
-  <div className="sk-chase-dot"></div>
-  <div className="sk-chase-dot"></div>
-  <div className="sk-chase-dot"></div>
-  <div className="sk-chase-dot"></div>
-</div>
-    );
+  return (
+    <div className="d-flex justify-content-center">
+      <div className="sk-chase">
+        <div className="sk-chase-dot"></div>
+        <div className="sk-chase-dot"></div>
+        <div className="sk-chase-dot"></div>
+        <div className="sk-chase-dot"></div>
+        <div className="sk-chase-dot"></div>
+        <div className="sk-chase-dot"></div>
+      </div>
+    </div>
+  );
 };
 
 export default Spinner;

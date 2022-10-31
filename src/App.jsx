@@ -8,6 +8,7 @@ import Spinner from "./components/Spinner";
 
 function App() {
   const [personaje, setPersonaje] = useState({});
+  const [mostrarSpinner, setMostrarSpinner] = useState(true);
 
   useEffect(() => {
     consultarAPI();
@@ -24,11 +25,22 @@ function App() {
       console.log(dato[0]);
       //guardar la frase del personaje en el state
       setPersonaje(dato[0]);
+      //cambiar el valor del mostrarSpinner
+      setMostrarSpinner(false);
     } catch (error) {
       console.log(error);
       //mostrar mensaje de error
     }
   };
+
+  //Cargar un componente condicional
+  //usamos el operador ternario
+  //(condicion logica)?(cuando se cumple la condicion):(logica si no se cumple la condicion)
+  const componenteCondicional = mostrarSpinner ? (
+    <Spinner></Spinner>
+  ) : (
+    <Frase personaje={personaje}></Frase>
+  );
 
   return (
     <Container>
@@ -36,10 +48,11 @@ function App() {
         <img src={theSimpson} alt="los simpsons" className="w-100" />
       </div>
       <div className="text-center my-4">
-        <Button type="button" onClick={consultarAPI}>Obtener Frase</Button>
+        <Button type="button" onClick={consultarAPI}>
+          Obtener Frase
+        </Button>
       </div>
-      <Frase personaje={personaje}></Frase>
-      <Spinner></Spinner>
+      {componenteCondicional}
     </Container>
   );
 }
